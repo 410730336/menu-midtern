@@ -1,0 +1,167 @@
+body{
+    padding: 50px;
+    
+    display: flex;
+    /* 左右置中 */
+    justify-content: center; 
+    background-color: #02005b;
+    color: rgba(255,255,255,0.95);
+    line-height: 28px;
+    letter-spacing: 1px;
+    font-family: "微軟正黑體",sans-serif;
+}
+
+.resume{
+    /* 讓resume裡的兩個div可以左右呈現 */
+    display: flex;
+    max-width: 950px;
+    border: solid 8px white;
+}
+
+.left{
+    /* 左邊站畫面的5/12 */
+    flex: 5;
+    padding-left: 15px;
+    padding-right: 50px;
+    border-right: solid 1px #ff7168;
+}
+.right{
+    /* 右邊站畫面的7/12 */
+    flex: 7;
+    padding-right: 15px;
+    padding-left: 50px;
+    /* 相對位置：設定在right底下的div都已right左上方為座標 */
+    position: relative;
+}
+ul{
+    /* 設定每個項目前面不顯示圓圈或數字 */
+    list-style: none;
+    /* 讓每個項目前面不要有距離 */
+    padding: 0px;
+}
+h4{
+    margin: 0px;
+    margin-top: 40px;
+    /* 設定文字的粗體大小與透明度 */
+    font-weight: 400;
+    opacity: 0.8;
+}
+h2{
+    margin: 0px;
+    margin-bottom: 25px;
+    font-weight: 400;
+}
+
+h2::after{
+    content: "";
+    width: 20px;
+    height: 5px;
+    background-color: #ff7168;
+    display: inline-block;
+    margin-left: 10px;
+}
+
+a{
+    /* 設定文字為白色、並讓超連結原有的底線消失 */
+    color:white;
+    text-decoration: none;
+    
+}
+
+.btn{
+    /* 設定框線會比較像按鈕 */
+    border: solid 3px #ff7168;
+    padding: 5px 20px;
+    margin-right: 10px;
+}
+
+.fill{
+    background-color: #ff7168;
+}
+
+.decoration{
+    width: 300px;
+    height: 140px;
+    /* border: solid 3px #ff7168; */
+    background: linear-gradient(to bottom right, #ff5f5f, #ffffae);
+    /* 產生一個方塊角的圓弧，左上、右上、右下、左下 */
+    border-radius: 70px 0px 0px 70px;
+    /* 以right的座標設相對位置 */
+    position: absolute;
+    right: 0px;
+    top: 20px;
+}
+
+.experience{
+    margin-top: 200px;
+    
+}
+
+/* 代表在listExperience所有li都要遵循這樣的格式
+    所以第一層和第二層的li都要遵循這個格式設定
+    .listExperienceli{
+        display: flex;
+        margin-bottom: 10px;
+} */
+
+/* 僅第一層的li會遵守這個格式 */
+.listExperience>li{
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.listExperience li ul{
+    padding-left: 10px;
+    margin-left: 10px;
+    border-left: solid 4px;
+    border-image: linear-gradient(to bottom, #ff5f5f, #ffffae);
+    border-image-slice: 1;
+}
+
+.circle{
+    /* 先劃出正方形 */
+    width: 50px;
+    height: 50px;
+    /* 圓的背景是白色的 */
+    background-color: rgba(255, 255, 255, 0.7);
+    /* 畫成圓 */
+    border-radius: 25px;
+    position: relative;
+    overflow: hidden;
+}
+
+.p90,.p180,.p270,.p360{
+    /* 因為p90在.circle底下，所以50%是以circle的寬與高做計算 */
+    width: 50%;
+    height: 50%;
+    background-color: #ff7168;
+    position: absolute;
+    left: 50%;
+    top: 0;
+}
+
+.p180{
+    top: 50%;
+}
+
+.p270{
+    left: 0;
+    top: 50%; 
+}
+.p360{
+    left: 0;
+    top: 0;
+}
+
+.circle::after{
+    content: "";
+    display: block;
+    background-color: #02005b;
+    width: calc( 100% - 20px);
+    height: calc( 100% - 20px);
+    border-radius: 50%;
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
